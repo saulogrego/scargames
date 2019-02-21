@@ -11,5 +11,6 @@
     <mapping class="br.com.scargames.Bandeira"/>
     <mapping class="br.com.scargames.Genero"/>
     <mapping class="br.com.scargames.Produtora"/>
+    <mapping class="br.com.scargames.Cartao"/>
   </session-factory>
 </hibernate-configuration>

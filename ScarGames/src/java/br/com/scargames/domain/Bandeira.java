@@ -1,12 +1,14 @@
 package br.com.scargames.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,6 +25,9 @@ public class Bandeira implements Serializable{
     @Column(name="descricao")
     @Size(min=1,max=45)
     private String descricao;
+    
+    @OneToMany(mappedBy="id")
+    private List<Cartao> cartoes;
 
     public Bandeira() {
     }
@@ -48,6 +53,14 @@ public class Bandeira implements Serializable{
         this.descricao = descricao;
     }
 
+    public List<Cartao> getCartoes() {
+        return cartoes;
+    }
+
+    public void setCartoes(List<Cartao> cartoes) {
+        this.cartoes = cartoes;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
