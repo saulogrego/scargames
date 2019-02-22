@@ -9,8 +9,11 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.jdbc.use_get_generated_keys">true</property>
     <mapping class="br.com.scargames.Bandeira"/>
-    <mapping class="br.com.scargames.Genero"/>
-    <mapping class="br.com.scargames.Produtora"/>
     <mapping class="br.com.scargames.Cartao"/>
+    <mapping class="br.com.scargames.Cidade"/>
+    <mapping class="br.com.scargames.Endereco"/>
+    <mapping class="br.com.scargames.Genero"/>
+    <mapping class="br.com.scargames.Jogo"/>
+    <mapping class="br.com.scargames.Produtora"/>
   </session-factory>
 </hibernate-configuration>
