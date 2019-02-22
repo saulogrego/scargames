@@ -15,5 +15,6 @@
     <mapping class="br.com.scargames.Genero"/>
     <mapping class="br.com.scargames.Jogo"/>
     <mapping class="br.com.scargames.Produtora"/>
+    <mapping class="br.com.scargames.Usuario"/>
   </session-factory>
 </hibernate-configuration>
