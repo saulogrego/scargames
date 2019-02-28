@@ -9,6 +9,7 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.jdbc.use_get_generated_keys">true</property>
     <mapping class="br.com.scargames.Bandeira"/>
+    <mapping class="br.com.scargames.Biblioteca"/>
     <mapping class="br.com.scargames.Cartao"/>
     <mapping class="br.com.scargames.Cidade"/>
     <mapping class="br.com.scargames.Endereco"/>

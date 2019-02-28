@@ -9,9 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -68,6 +67,9 @@ public class Usuario implements Serializable{
     
     @OneToMany(mappedBy="id")
     private List<Cartao> cartoes;
+    
+    @OneToOne(mappedBy="id")
+    private Biblioteca biblioteca;
     
     public Usuario() {
     }
@@ -161,6 +163,14 @@ public class Usuario implements Serializable{
 
     public void setCartoes(List<Cartao> cartoes) {
         this.cartoes = cartoes;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
     }
 
     @Override

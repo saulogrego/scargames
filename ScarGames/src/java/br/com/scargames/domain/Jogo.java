@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -51,6 +52,9 @@ public class Jogo implements Serializable {
     @JoinColumn(name="produtora_jogo_id",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Produtora produtora;
+    
+    @OneToOne(mappedBy="id")
+    private Biblioteca biblioteca;
 
     public Jogo() {
     }
@@ -128,6 +132,14 @@ public class Jogo implements Serializable {
 
     public void setProdutora(Produtora produtora) {
         this.produtora = produtora;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
     }
 
     @Override
