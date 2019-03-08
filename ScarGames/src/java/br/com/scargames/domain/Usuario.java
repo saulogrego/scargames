@@ -59,7 +59,7 @@ public class Usuario implements Serializable{
     
     @NotNull
     @Column(name="senha")
-    @Size(min=6,max=20)
+    @Size(min=6,max=100)
     private String senha;
     
     @OneToMany(mappedBy="id")
