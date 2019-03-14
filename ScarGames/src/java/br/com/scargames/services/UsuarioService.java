@@ -23,7 +23,6 @@ public class UsuarioService {
     }
     
     public Boolean alterar(Usuario usuario){
-        usuario.setSenha(HashMaker.stringHexa(HashMaker.gerarHash(usuario.getSenha())));
         return usuarioDao.alterar(usuario);
     }
     
