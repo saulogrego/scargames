@@ -18,11 +18,11 @@ public class Biblioteca implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     
-    @JoinColumn(name="usuario_biblioteca_id",referencedColumnName="id")
+    @JoinColumn(name="usuario",referencedColumnName="id")
     @OneToOne(optional=false)
     private Usuario usuario;
     
-    @JoinColumn(name="jogo_biblioteca_id",referencedColumnName="id")
+    @JoinColumn(name="jogo",referencedColumnName="id")
     @OneToOne(optional=false)
     private Jogo jogo;
     

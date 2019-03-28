@@ -1,7 +1,7 @@
 package br.com.scargames.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -31,21 +29,20 @@ public class Cartao implements Serializable{
     
     @NotNull
     @Column(name="vencimento")
-    @Temporal(TemporalType.DATE)
-    private LocalDate vencimento;
+    private Date vencimento;
     
-    @JoinColumn(name="bandeira_cartao_id", referencedColumnName="id")
+    @JoinColumn(name="bandeira", referencedColumnName="id")
     @ManyToOne(optional=false)
     private Bandeira bandeira;
     
-    @JoinColumn(name="usuario_cartao_id",referencedColumnName="id")
+    @JoinColumn(name="usuario",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Usuario usuario;
 
     public Cartao() {
     }
 
-    public Cartao(Integer id, String numero, LocalDate vencimento, Bandeira bandeira, Usuario usuario) {
+    public Cartao(Integer id, String numero, Date vencimento, Bandeira bandeira, Usuario usuario) {
         this.id = id;
         this.numero = numero;
         this.vencimento = vencimento;
@@ -69,11 +66,11 @@ public class Cartao implements Serializable{
         this.numero = numero;
     }
 
-    public LocalDate getVencimento() {
+    public Date getVencimento() {
         return vencimento;
     }
 
-    public void setVencimento(LocalDate vencimento) {
+    public void setVencimento(Date vencimento) {
         this.vencimento = vencimento;
     }
 

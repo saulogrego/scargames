@@ -45,15 +45,15 @@ public class Jogo implements Serializable {
     @Column(name="nota")
     private Double nota;
     
-    @JoinColumn(name="genero_jogo_id",referencedColumnName="id")
+    @JoinColumn(name="genero",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Genero genero;
     
-    @JoinColumn(name="produtora_jogo_id",referencedColumnName="id")
+    @JoinColumn(name="produtora",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Produtora produtora;
     
-    @OneToOne(mappedBy="id")
+    @OneToOne(mappedBy="jogo")
     private Biblioteca biblioteca;
 
     public Jogo() {

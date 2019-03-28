@@ -8,14 +8,14 @@
     <property name="hibernate.connection.password">masterkey</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.jdbc.use_get_generated_keys">true</property>
-    <mapping class="br.com.scargames.Bandeira"/>
-    <mapping class="br.com.scargames.Biblioteca"/>
-    <mapping class="br.com.scargames.Cartao"/>
-    <mapping class="br.com.scargames.Cidade"/>
-    <mapping class="br.com.scargames.Endereco"/>
-    <mapping class="br.com.scargames.Genero"/>
-    <mapping class="br.com.scargames.Jogo"/>
-    <mapping class="br.com.scargames.Produtora"/>
-    <mapping class="br.com.scargames.Usuario"/>
+    <mapping class="br.com.scargames.domain.Bandeira"/>
+    <mapping class="br.com.scargames.domain.Biblioteca"/>
+    <mapping class="br.com.scargames.domain.Cartao"/>
+    <mapping class="br.com.scargames.domain.Cidade"/>
+    <mapping class="br.com.scargames.domain.Endereco"/>
+    <mapping class="br.com.scargames.domain.Genero"/>
+    <mapping class="br.com.scargames.domain.Jogo"/>
+    <mapping class="br.com.scargames.domain.Produtora"/>
+    <mapping class="br.com.scargames.domain.Usuario"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>ScarGames</title>
+    </h:head>
+    <h:body>
+        <h1>ScarGames | Autenticação</h1>
+        <h:form>
+            <h:inputText id="email" value="#{usuarioMB.email}"/><br/>
+            <h:inputSecret id="senha" value="#{usuarioMB.senha}"/><br/>
+            <h:commandButton value="OK" action="#{usuarioMB.autenticar()}"/>
+        </h:form>
+    </h:body>
+</html>
+
