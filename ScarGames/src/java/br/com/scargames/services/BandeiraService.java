@@ -1,7 +1,6 @@
 package br.com.scargames.services;
 import br.com.scargames.dao.BandeiraDao;
 import br.com.scargames.domain.Bandeira;
-import br.com.scargames.util.HashMaker;
 import java.util.List;
 
 

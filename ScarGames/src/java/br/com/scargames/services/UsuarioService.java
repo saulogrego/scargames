@@ -9,6 +9,10 @@ public class UsuarioService {
     
     private final UsuarioDao usuarioDao = new UsuarioDao();
     
+    public void inicializarHibernate(){
+        usuarioDao.inicializarHibernate();
+    }
+    
     public List<Usuario> listar(){
         return usuarioDao.listar();
     }

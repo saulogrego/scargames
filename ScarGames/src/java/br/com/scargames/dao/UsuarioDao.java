@@ -6,6 +6,12 @@ import java.util.List;
 import org.hibernate.Session;
 
 public class UsuarioDao {
+    
+    public void inicializarHibernate(){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.getTransaction().commit();
+    }
 
     public List<Usuario> listar(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();

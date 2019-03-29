@@ -5,7 +5,7 @@
     <h:head>
         <title>ScarGames</title>
     </h:head>
-    <h:body>
+    <h:body onload="#{usuarioMB.inicializarHibernate()}">
         <h1>ScarGames | Autenticação</h1>
         <h:form>
             <h:inputText id="email" value="#{usuarioMB.email}"/><br/>
