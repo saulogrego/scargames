@@ -2,30 +2,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>ScarGames</title>
     </h:head>
     <h:body onload="#{bandeiraMB.listar()}">
         <h1>Bandeiras</h1>
         <h:form>
-            <h:dataTable value="#{bandeiraMB.bandeiras}" var="bandeira"
-                         frame="box" cellpadding="3">
+            <p:dataTable value="#{bandeiraMB.bandeiras}" var="bandeira">
                 <f:facet name="header">Listagem de Bandeiras</f:facet>
                 <f:facet name="footer">Total de Registros: #{bandeiraMB.bandeiras.size()}</f:facet>
-                <h:column>
+                <p:column>
                     <f:facet name="header">Descrição</f:facet>
                     <h:outputText value="#{bandeira.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">Editar</f:facet>
                     <h:commandLink value="Editar" action="#{bandeiraMB.carregarDados(bandeira)}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">Excluir</f:facet>
                     <h:commandLink value="Excluir" action="#{bandeiraMB.excluir(bandeira)}"/>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
         
             <h:commandButton value="Novo" action="#{bandeiraMB.novo()}"/>
         </h:form>

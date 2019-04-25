@@ -1,17 +1,25 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>ScarGames</title>
     </h:head>
     <h:body onload="#{usuarioMB.inicializarHibernate()}">
-        <h1>ScarGames | Autenticação</h1>
-        <h:form>
-            <h:inputText id="email" value="#{usuarioMB.email}"/><br/>
-            <h:inputSecret id="senha" value="#{usuarioMB.senha}"/><br/>
-            <h:commandButton value="OK" action="#{usuarioMB.autenticar()}"/>
-        </h:form>
+        <p:dialog visible="true" closable="false" resizable="false" 
+                  draggable="false" modal="true" width="400"
+                  header="ScarGames | Autenticação" >
+            <h:form>
+                <br/>
+                <p:inputText id="email" value="#{usuarioMB.email}" placeholder="Email" style="width: 95%"/><br/><br/>
+                <p:password id="senha" value="#{usuarioMB.senha}" placeholder="Senha" style="width: 95%"/><br/><br/>
+                <div align="center">
+                    <p:commandButton value="OK" action="#{usuarioMB.autenticar()}" icon="ui-icon-check"/><br/>
+                </div>
+            </h:form>
+            <br/>
+        </p:dialog>
     </h:body>
 </html>
 
