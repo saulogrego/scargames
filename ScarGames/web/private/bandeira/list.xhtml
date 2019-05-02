@@ -8,26 +8,42 @@
         <title>ScarGames</title>
     </h:head>
     <h:body onload="#{bandeiraMB.listar()}">
-        <h1>Bandeiras</h1>
-        <h:form>
-            <p:dataTable value="#{bandeiraMB.bandeiras}" var="bandeira">
-                <f:facet name="header">Listagem de Bandeiras</f:facet>
-                <f:facet name="footer">Total de Registros: #{bandeiraMB.bandeiras.size()}</f:facet>
-                <p:column>
-                    <f:facet name="header">Descrição</f:facet>
-                    <h:outputText value="#{bandeira.descricao}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">Editar</f:facet>
-                    <h:commandLink value="Editar" action="#{bandeiraMB.carregarDados(bandeira)}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">Excluir</f:facet>
-                    <h:commandLink value="Excluir" action="#{bandeiraMB.excluir(bandeira)}"/>
-                </p:column>
-            </p:dataTable>
         
-            <h:commandButton value="Novo" action="#{bandeiraMB.novo()}"/>
+        <h:form>
+            <div class="ui-g">
+                <div class="ui-g-1"></div>
+                <div class="ui-g-9">
+                    <h1>Bandeiras</h1>
+                </div>
+                <div class="ui-g-1">
+                    <p:commandLink action="#{bandeiraMB.novo()}">
+                        <p:graphicImage url="../../resources/img/add.png" 
+                                        height="40" width="40" title="Novo"
+                                        style="margin-top: 20px; float: right;"/>
+                    </p:commandLink>
+                </div>
+                <div class="ui-g-1"></div>
+                
+                <div class="ui-g-1"></div>
+                <div class="ui-g-10">
+                    <p:dataTable value="#{bandeiraMB.bandeiras}" var="bandeira"
+                                 paginator="true" paginatorPosition="bottom"
+                                 rows="10">
+                        <f:facet name="header">Listagem de Bandeiras</f:facet>
+                        <f:facet name="footer">Total de Registros: #{bandeiraMB.bandeiras.size()}</f:facet>
+                        <p:column headerText="Descrição" sortBy="#{bandeira.descricao}">
+                            <h:outputText value="#{bandeira.descricao}"/>
+                        </p:column>
+                        <p:column headerText="Editar" width="70" style="text-align: center;">
+                            <p:commandButton icon="ui-icon-pencil" action="#{bandeiraMB.carregarDados(bandeira)}"/>
+                        </p:column>
+                        <p:column headerText="Excluir" width="70" style="text-align: center;">
+                            <p:commandButton icon="ui-icon-trash" action="#{bandeiraMB.excluir(bandeira)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+                <div class="ui-g-1"></div>
+            </div>
         </h:form>
     </h:body>
 </html>
