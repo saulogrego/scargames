@@ -29,6 +29,12 @@
     padding: 8px;
 }
 
+#conteudo{
+    width: 100%;
+    position: absolute;
+    margin-top: 80px;
+}
+
 .ui-dock-bottom{
     margin-bottom: 40px;
 }

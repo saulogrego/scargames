@@ -5,7 +5,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>
-            <ui:insert name="title"/>
+            <ui:insert name="titleWindow"/>
         </title>
         <link rel="stylesheet" href="#{request.contextPath}/resources/css/style.css"/>
     </h:head>
@@ -13,7 +13,9 @@
         <ui:include src="header.xhtml"/>
         <h:form>
             <ui:include src="menu.xhtml"/>
-            <ui:insert name="content"/>
+            <div id="conteudo">
+                <ui:insert name="content"/>
+            </div>
         </h:form>
         <ui:include src="footer.xhtml"/>
     </h:body>

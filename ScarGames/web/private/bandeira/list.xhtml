@@ -3,13 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>ScarGames</title>
-    </h:head>
-    <h:body onload="#{bandeiraMB.listar()}">
-        
-        <h:form>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <ui:composition template="../templates/template.xhtml">
+        <ui:define name="titleWindow">ScarGames - Bandeiras</ui:define>
+        <ui:define name="content">
             <div class="ui-g">
                 <div class="ui-g-1"></div>
                 <div class="ui-g-9">
@@ -17,7 +16,7 @@
                 </div>
                 <div class="ui-g-1">
                     <p:commandLink action="#{bandeiraMB.novo()}">
-                        <p:graphicImage url="../../resources/img/add.png" 
+                        <p:graphicImage url="/resources/img/add.png" 
                                         height="40" width="40" title="Novo"
                                         style="margin-top: 20px; float: right;"/>
                     </p:commandLink>
@@ -28,7 +27,7 @@
                 <div class="ui-g-10">
                     <p:dataTable value="#{bandeiraMB.bandeiras}" var="bandeira"
                                  paginator="true" paginatorPosition="bottom"
-                                 rows="10">
+                                 rows="10" emptyMessage="Nenhum registro encontrado">
                         <f:facet name="header">Listagem de Bandeiras</f:facet>
                         <f:facet name="footer">Total de Registros: #{bandeiraMB.bandeiras.size()}</f:facet>
                         <p:column headerText="Descrição" sortBy="#{bandeira.descricao}">
@@ -44,7 +43,7 @@
                 </div>
                 <div class="ui-g-1"></div>
             </div>
-        </h:form>
-    </h:body>
+        </ui:define>
+    </ui:composition>
 </html>
 
