@@ -37,7 +37,8 @@
                             <p:commandButton icon="ui-icon-pencil" action="#{bandeiraMB.carregarDados(bandeira)}"/>
                         </p:column>
                         <p:column headerText="Excluir" width="70" style="text-align: center;">
-                            <p:commandButton icon="ui-icon-trash" action="#{bandeiraMB.excluir(bandeira)}"/>
+                            <p:commandButton icon="ui-icon-trash" action="#{bandeiraMB.excluir(bandeira)}"
+                                             onclick="if (!confirm('Tem certeza que deseja excluir?')) return false"/>
                         </p:column>
                     </p:dataTable>
                 </div>
