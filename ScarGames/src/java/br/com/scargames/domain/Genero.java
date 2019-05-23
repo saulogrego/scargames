@@ -21,9 +21,9 @@ public class Genero implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     
-    @NotNull
+    //@NotNull
     @Column(name="descricao")
-    @Size(min=1,max=45)
+    //@Size(min=1,max=45)
     private String descricao;
     
     @OneToMany(mappedBy="id")

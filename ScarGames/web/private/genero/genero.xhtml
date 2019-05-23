@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="../templates/template.xhtml">
+        <ui:define name="titleWindow">ScarGames - Gêneros</ui:define>
+        <ui:define name="content">
+            <div class="ui-g">
+                <div class="ui-g-1"></div>
+                <div class="ui-g-9">
+                    <h1>Gêneros</h1>
+                </div>
+                <div class="ui-g-1">
+                    <p:commandLink action="#{generoMB.novo()}" onclick="PF('gestaoGenero').show()">
+                        <p:graphicImage url="/resources/img/add.png" 
+                                        height="40" width="40" title="Novo"
+                                        style="margin-top: 20px; float: right;"/>
+                    </p:commandLink>
+                </div>
+                <div class="ui-g-1"></div>
+                
+                <div class="ui-g-1"></div>
+                <div class="ui-g-10">
+                    <p:dataTable id="generos" value="#{generoMB.generos}" var="genero"
+                                 paginator="true" paginatorPosition="bottom"
+                                 rows="10" emptyMessage="Nenhum registro encontrado">
+                        <f:facet name="header">Listagem de Gêneros</f:facet>
+                        <f:facet name="footer">Total de Registros: #{generoMB.generos.size()}</f:facet>
+                        <p:column headerText="Descrição" sortBy="#{genero.descricao}">
+                            <h:outputText value="#{genero.descricao}"/>
+                        </p:column>
+                        <p:column headerText="Editar" width="70" style="text-align: center;">
+                            <p:commandButton icon="ui-icon-pencil" action="#{generoMB.carregarDados(genero)}"
+                                             onclick="PF('gestaoGenero').show()" immediate="true"
+                                             update="form:growl"/>
+                        </p:column>
+                        <p:column headerText="Excluir" width="70" style="text-align: center;">
+                            <p:commandButton icon="ui-icon-trash" action="#{generoMB.excluir(genero)}"
+                                             onclick="if (!confirm('Tem certeza que deseja excluir?')) return false"
+                                             update="form:growl, generos"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+                <div class="ui-g-1"></div>
+            </div>
+            
+            <p:dialog id="dlgGenero" closable="true" draggable="false" maximizable="true"
+                      minimizable="true" resizable="false" modal="true"
+                      header="ScarGames | Gêneros" widgetVar="gestaoGenero"
+                      width="800" height="500">
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-10">
+                        <h1>Gêneros</h1>
+                    </div>
+                    <div class="ui-g-1"></div>
+
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-10">
+                        <p:inputText id="descricao" placeholder="Descrição"
+                                     value="#{generoMB.genero.descricao}"
+                                     style="width: 95%;" required="true"
+                                     requiredMessage="Campo Descrição é obrigatório"/>
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <p:commandButton value="Salvar" icon="ui-icon-check"  
+                                     action="#{generoMB.inserir()}"
+                                     style="width: 150px; margin-right: 20px;"
+                                     update="growl, generos"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-close" 
+                                     onclick="PF('gestaoGenero').hide()" 
+                                     immediate="true" style="width: 150px;"/>
+                </div>          
+            </p:dialog>
+        </ui:define>
+    </ui:composition>
+</html>
+
